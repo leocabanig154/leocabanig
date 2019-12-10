@@ -45,4 +45,13 @@ class StudentController extends Controller
          }
          return redirect()->back()->withStatus('Student update.');
         } 
+
+        public function destroy(Request $request){
+              $student = Student::find($request->id);
+
+              if($student){
+                $student->delete();
+              }
+              return redirect()->back()->withStatus('Student deleted.');
+        }
 }
